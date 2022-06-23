@@ -34,7 +34,7 @@ export default function Sidebar() {
         Cronograma de aulas
       </span>
       <div className="flex flex-col gap-8">
-        {data?.lessons.map(({ id, lessonType, slug, availableAt, title }) => {
+        {data?.lessons.map(({ id, lessonType, slug, availableAt, title }, index) => {
           return (
             <Lesson
               key={id}
@@ -42,6 +42,7 @@ export default function Sidebar() {
               slug={slug}
               availableAt={new Date(availableAt)}
               type={lessonType}
+              isSelected={index === 5}
             />
           );
         })}
