@@ -1,12 +1,20 @@
 import React from "react";
 import { CaretRight, DiscordLogo, Lightning, Image } from "phosphor-react";
 import LogoRocketseat from "Icons/LogoRocketseat";
+import { DefaultUi, Player, Youtube, Video } from "@vime/react";
 
-export default function Video() {
+import "@vime/core/themes/default.css";
+
+export default function video() {
   return (
     <div className="flex-1">
       <div className="bg-black flex justify-center">
-        <div className="w-full h-full max-w-[1100px] max-h-[60vh] aspect-video"></div>
+        <div className="w-full h-full max-w-[1100px] max-h-[60vh] aspect-video">
+          <Player>
+            <Youtube videoId="Ox_zb2cs9zM" />
+            <DefaultUi />
+          </Player>
+        </div>
       </div>
 
       <div className="p-8 max-w-[1100px] mx-auto">
@@ -55,7 +63,7 @@ export default function Video() {
         </div>
       </div>
 
-      <div className="flex flex-1 px-8 pt-12 justify-between items-center">
+      <div className="flex flex-1 px-8 pt-12 justify-between items-center max-w-[1100px] mx-auto">
         <a
           href="#"
           className="flex w-[49%] h-[134px] bg-gray-700 items-center hover:bg-gray-500 transition-colors"
@@ -88,7 +96,7 @@ export default function Video() {
         </a>
       </div>
 
-      <footer className="flex gap-6 items-end h-[54px] mt-20 mb-5 px-6 border-t border-gray-500">
+      <footer className="flex gap-6 items-end h-[54px] mt-20 mb-5 px-6 border-t border-gray-500 max-w-[1100px] mx-auto">
         <LogoRocketseat />
         <div className="flex flex-1 text-gray-300 justify-between items-center mb-1">
           <p>Rocketseat - Todos os direitos reservados</p>
