@@ -7,6 +7,7 @@ export default function Router() {
     <Routes>
       <Route path="/" element={<h1>Hello World</h1>} />
       <Route path="/event" element={<Event />} />
+      <Route path="/event/lesson/:slug" element={<Event />} />
     </Routes>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { CheckCircle, Lock } from "phosphor-react";
 import { isPast, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { Link } from "react-router-dom";
 
 interface LessonProps {
   title: string;
@@ -22,16 +23,15 @@ export default function Lesson({ title, slug, availableAt, type, isSelected }: L
   );
 
   return (
-    <div>
-      <span className="text-gray-300">{dateFormatted}</span>
+    <div className="relative">
+      {isSelected && (
+        <div className="w-[13.75px] h-[13.75px] bg-green-300 absolute top-1/2 -left-1.5 -translate-y-1/2 rotate-45" />
+      )}
+      <Link to={`/event/lesson/${slug}`} className="group">
+        <span className="text-gray-300">{dateFormatted}</span>
 
-      <div className="relative">
-        {isSelected && (
-          <div className="w-[13.75px] h-[13.75px] bg-green-300 absolute top-1/2 -left-1.5 -translate-y-1/2 rotate-45" />
-        )}
-        <a
-          href="#"
-          className={`block rounded border border-gray-500 p-4 mt-2 ${
+        <div
+          className={`block rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500 transition-colors ${
             isSelected ? "bg-green-300 border-none" : "bg-transparent"
           }`}
         >
@@ -56,8 +56,8 @@ export default function Lesson({ title, slug, availableAt, type, isSelected }: L
             </span>
           </header>
           <strong className="text-gray-200 mt-5 block">{title}</strong>
-        </a>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 }
